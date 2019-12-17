@@ -7,8 +7,6 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var greetingView: TextView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
