@@ -28,5 +28,8 @@ class MainActivityTest {
 
         onView(withId(R.id.greet_button))
             .perform(click())
+
+        onView(withId(R.id.greeting))
+            .check(matches(withText(R.string.hello)))
     }
 }
