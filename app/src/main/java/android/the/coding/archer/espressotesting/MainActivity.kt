@@ -13,10 +13,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        greetingView = findViewById(R.id.greeting)
-    }
-
-    fun greet(v: View) {
-        greetingView.setText(R.string.hello)
+        setTitle(R.string.title)
     }
 }

@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Espresso Testing</string>
-    <string name="hello">Hello</string>
-    <string name="greet">Greet</string>
+    <string name="app_name">Toolbar Title</string>
+    <string name="title">My Amazing Title</string>
 </resources>
