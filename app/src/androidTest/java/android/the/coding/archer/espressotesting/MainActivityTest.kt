@@ -35,7 +35,7 @@ class MainActivityTest {
     private fun withToolbarTitle(expectedTitle: CharSequence): Matcher<View> {
         return object : BoundedMatcher<View, Toolbar>(Toolbar::class.java) {
             override fun describeTo(description: Description?) {
-
+                description?.appendText("with Toolbar Title: " + expectedTitle)
             }
 
             override fun matchesSafely(toolbar: Toolbar?): Boolean {
