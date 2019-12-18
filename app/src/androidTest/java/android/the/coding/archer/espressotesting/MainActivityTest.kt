@@ -1,5 +1,6 @@
 package android.the.coding.archer.espressotesting
 
+import android.support.test.InstrumentationRegistry
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.matcher.BoundedMatcher
@@ -24,12 +25,18 @@ class MainActivityTest {
 
     @Test
     fun toolbarTitle() {
-        onView(
+        /*onView(
             allOf(
                 isAssignableFrom(TextView::class.java),
                 withParent(isAssignableFrom(Toolbar::class.java))
             )
-        ).check(matches(withText(R.string.title)))
+        ).check(matches(withText(R.string.title)))*/
+
+        // Testing our Custom made withTootbarTitle()
+        val title = InstrumentationRegistry.getTargetContext().getString(R.string.title)
+
+        onView(isAssignableFrom(Toolbar::class.java))
+            .check(matches(withToolbarTitle(title)))
     }
 
     private fun withToolbarTitle(expectedTitle: CharSequence): Matcher<View> {
