@@ -1,10 +1,11 @@
 package android.the.coding.archer.espressotesting
 
+import android.support.test.espresso.Espresso.onData
 import android.support.test.espresso.Espresso.onView
+import android.support.test.espresso.action.ViewActions.click
 import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.matcher.BoundedMatcher
-import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
-import android.support.test.espresso.matcher.ViewMatchers.withId
+import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
 import org.hamcrest.CoreMatchers.not
 import org.hamcrest.Description
@@ -21,6 +22,14 @@ class MainActivityTest {
     fun clickItem() {
         onView(withId(R.id.footer))
             .check(matches(not(isDisplayed())))
+
+        onData(withValue(25))
+            .inAdapterView(withId(R.id.list))
+            .perform(click())
+
+        onView((withId(R.id.footer)))
+            .check(matches(withText("25")))
+            .check(matches(isDisplayed()))
     }
 
     private fun withValue(value: Int): Matcher<Any> {
